@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered dRTC Network | dTelecom</title>
+    <meta name="description" content="Build real-time voice, video, and chat interactions between your users and LLMs.">
+    <meta property="og:image" content="https://dtelecom-portal.vercel.app/dTelecom-airdrop.jpeg">
+    <meta property="og:image:width" content="900">
+    <meta property="og:image:height" content="506">
+    <meta name="twitter:image" content="https://dtelecom-portal.vercel.app/dTelecom-airdrop.jpeg">
+    <link rel="stylesheet" href="css/main.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+        }
+        img, video, picture {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+        button, input[type="button"], input[type="submit"] {
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+        }
+        input, textarea, select {
+            font-family: inherit;
+            font-size: inherit;
+        }
+    </style>
+</head>
+<body>
+<body class="site-body">
+        <div class="site-page widget-visible">
+            <div class="fixed-content">
+                <div id="cookie" class="cookie-wrap click">
+                    <div class="cookie-content">
+                        <div class="text">
+                            <div class="text-a"><strong>We use cookies.</strong> Cookies help us deliver the best<br> experience on our website</div>
+                            <div class="btn-wrap">
+                                <div><a href="#" class="btn btn-site-v1" id="button-allow">Allow</a></div>
+                                <div><a href="#" class="btn btn-site-v4" id="cookie-decline">Decline</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="talk" class="talk-ai">
+                    <form class="talk-ai__form" id="form-ai" action="#">
+                        <div class="talk-ai__video">
+                            <video autoplay="autoplay" playsinline="" loop="loop" muted="muted" preload="auto">
+                                <source src="https://www.dtelecom.org/video/ai2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="talk-ai__control">
+                            <div class="talk-ai__btn">
+                                <button type="submit" class="btn-talk">Talk to AI</button>
+                            </div>
+                            <div class="talk-ai__select">
+                                <div class="custom-select">
+                                    <div class="selected">
+                                        <div class="selected-img">
+                                            <img src="https://www.dtelecom.org/img/flags/3.svg" alt="English" class="selected-flag">
+                                        </div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <div class="option" data-value="Arabic">
+                                            <img src="https://www.dtelecom.org/img/flags/1.svg" alt="Arabic">
+                                            <span>Arabic</span>
+                                        </div>
+                                        <div class="option" data-value="Chinese">
+                                            <img src="https://www.dtelecom.org/img/flags/2.svg" alt="Chinese">
+                                            <span>Chinese</span>
+                                        </div>
+                                        <div class="option selected-value" data-value="English">
+                                            <img src="https://www.dtelecom.org/img/flags/3.svg" alt="English">
+                                            <span>English</span>
+                                        </div>
+                                        <div class="option" data-value="French">
+                                            <img src="https://www.dtelecom.org/img/flags/4.svg" alt="French">
+                                            <span>French</span>
+                                        </div>
+                                        <div class="option" data-value="German">
+                                            <img src="https://www.dtelecom.org/img/flags/5.svg" alt="German">
+                                            <span>German</span>
+                                        </div>
+                                        <div class="option" data-value="Greek">
+                                            <img src="https://www.dtelecom.org/img/flags/6.svg" alt="Greek">
+                                            <span>Greek</span>
+                                        </div>
+                                        <div class="option" data-value="Hindi">
+                                            <img src="https://www.dtelecom.org/img/flags/7.svg" alt="Hindi">
+                                            <span>Hindi</span>
+                                        </div>
+                                        <div class="option" data-value="Italian">
+                                            <img src="https://www.dtelecom.org/img/flags/8.svg" alt="Italian">
+                                            <span>Italian</span>
+                                        </div>
+                                        <div class="option" data-value="Japanese">
+                                            <img src="https://www.dtelecom.org/img/flags/9.svg" alt="Japanese">
+                                            <span>Japanese</span>
+                                        </div>
+                                        <div class="option" data-value="Portuguese">
+                                            <img src="https://www.dtelecom.org/img/flags/10.svg" alt="Portuguese">
+                                            <span>Portuguese</span>
+                                        </div>
+                                        <div class="option" data-value="Russian">
+                                            <img src="https://www.dtelecom.org/img/flags/11.svg" alt="Russian">
+                                            <span>Russian</span>
+                                        </div>
+                                        <div class="option" data-value="Spanish">
+                                            <img src="https://www.dtelecom.org/img/flags/12.svg" alt="Spanish">
+                                            <span>Spanish</span>
+                                        </div>
+                                        <div class="option" data-value="Turkish">
+                                            <img src="https://www.dtelecom.org/img/flags/13.svg" alt="Turkish">
+                                            <span>Turkish</span>
+                                        </div>
+                                        <div class="option" data-value="Ukrainian">
+                                            <img src="https://www.dtelecom.org/img/flags/14.svg" alt="Ukrainian">
+                                            <span>Ukrainian</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <select name="language" class="coutry-select hidden-select">
+                                    <option value="Arabic">Arabic</option>
+                                    <option value="Chinese">Chinese</option>
+                                    <option value="English" selected=""> English</option>
+                                    <option value="French">French</option>
+                                    <option value="German">German</option>
+                                    <option value="Greek">Greek</option>
+                                    <option value="Hindi">Hindi</option>
+                                    <option value="Italian">Italian</option>
+                                    <option value="Japanese">Japanese</option>
+                                    <option value="Portuguese">Portuguese</option>
+                                    <option value="Russian">Russian</option>
+                                    <option value="Spanish">Spanish</option>
+                                    <option value="Turkish">Turkish</option>
+                                    <option value="Ukrainian">Ukrainian</option>
+                                </select>
+                            </div>
+                            <div class="talk-ai__btn-end">
+                                <button type="button" class="btn-end">End</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <header class="site-header">
+                <div class="container-xl">
+                    <div class="site-header__section">
+                        <div class="site-header__row">
+                            <div class="site-header__col1">
+                                <div class="site-logo">
+                                    <a href="./"><img src="https://www.dtelecom.org/img/logo.svg" alt="dTelecom" class="img-fluid"></a>
+                                </div>
+                            </div>
+                            <div class="site-header__col2">
+                                <ul class="header-menu">
+                                    <li>
+                                        <a href="#" class="open-modal">Network</a>
+                                    </li>
+                                    <li>
+                                        <a href="#s4">AI</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="open-modal">Build</a>
+                                    </li>
+                                    <li>
+                                        <a href="#s6">Use</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="open-modal">Earn</a>
+                                    </li>
+                                    <li>
+                                        <a href="#s8">Community</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://blog.dtelecom.org" target="_blank">Blog</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="site-header__col3">
+                                <button class="btn-v1 open-modal"><span>Get Started</span></button>
+                                <a href="#" class="menu-btn"><span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="site-main">
+                <section class="b1 site-section" id="s1">
+                    <div class="container">
+                        <h1 class="b1__title site-title text-center">
+                            <span class="text-gradient-v1">Decentralized Real-Time</span><br>
+                            <span class="text-gradient-v1">Communication</span> Network with AI
+                        </h1>
+                        <div class="b1__text text-v1 text-center d-none d-lg-block">
+                            <span class="badge-v1"><span>#</span> Build</span> real-time voice, video, and chat interactions between your users and LLMs.
+                        </div>
+                        <div class="b1__text text-v1 text-center d-none d-lg-block">
+                            <span class="badge-v1"><span>#</span> own</span> your resources and data. <span class="badge-v1"><span>#</span> earn</span> by contributing bandwidth.
+                        </div>
+                        <div class="b1__text text-v1 text-center d-block d-lg-none">
+                            <span class="badge-v1 fb-badge"><span>#</span> Build</span> real-time voice, video, and chat<br> in your app. <span class="badge-v1 fb-badge"><span>#</span> own</span> your data.<br> <span class="badge-v1 fb-badge"><span>#</span> earn</span> by contributing bandwidth
+                        </div>
+                        <div class="b1__btns">
+                            <a href="#" class="btn-v2 open-modal">Start Building</a>
+                            <a href="#s8" class="btn-v3">Join the Community</a>
+                        </div>
+                        <div class="powered-by">
+                            <div class="powered-by__text">Built on</div>
+                            <div class="powered-by__logo"><img src="https://www.dtelecom.org/img/solana-logo.svg" alt="logo" class="img-fluid"></div>
+                        </div>
+                        <div class="b1__video">
+                            <video autoplay="autoplay" playsinline="" webkit-playsinline="" loop="loop" muted="muted" preload="auto" disablepictureinpicture="">
+                                <source media="(max-width: 991px)" src="https://www.dtelecom.org/video/b1-2_md.mp4" type="video/mp4">
+                                <source src="https://www.dtelecom.org/video/b1-3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="container-xl">
+                        <div class="b1__logos">
+                            <div class="b1__logos-title text-center">Backed &amp; Mentioned</div>
+                            <div class="marquee">
+                                <div class="marquee__inner">
+                                    <div class="marquee__content">
+                                        <div class="logo-card">
+                                            <img src="https://www.dtelecom.org/img/logo3.svg" alt="logo" class="img-fluid">
+                                        </div>
+                                        <div class="logo-card">
+                                            <img src="https://www.dtelecom.org/img/logo4.svg" alt="logo" class="img-fluid">
+                                        </div>
+                                        <div class="logo-card">
+                                            <img src="https://www.dtelecom.org/img/logo5.svg" alt="logo" class="img-fluid">
+                                        </div>
+                                        <div class="logo-card">
+                                            <img src="https://www.dtelecom.org/img/logo1.svg" alt="logo" class="img-fluid">
+                                        </div>
+                                        <div class="logo-card">
+                                            <img src="https://www.dtelecom.org/img/logo9.svg" alt="logo" class="img-fluid">
+                                        </div>
+                                        <div class="logo-card">
+                                            <img src="https://www.dtelecom.org/img/logo1-1.svg" alt="logo" class="img-fluid">
+                                        </div>
+                                        <div class="logo-card">
+                                            <img src="https://www.dtelecom.org/img/logo1-2.svg" alt="logo" class="img-fluid">
+                                        </div>
+                                        <div class="logo-card">
+                                            <img src="https://www.dtelecom.org/img/logo2.svg" alt="logo" class="img-fluid">
+                                        </div>
+                                        <div class="logo-card">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/logo6.webp, https://www.dtelecom.org/img/webp/logo6@2x.webp 2x" type="image/webp">
+                                                <source srcset="https://www.dtelecom.org/img/logo6.png, https://www.dtelecom.org/img/logo6@2x.png 2x">
+                                                <img src="https://www.dtelecom.org/img/logo6.png" alt="image" srcset="https://www.dtelecom.org/img/logo6@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </div>
+                                        <div class="logo-card">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/logo7.webp, https://www.dtelecom.org/img/webp/logo7@2x.webp 2x" type="image/webp">
+                                                <source srcset="https://www.dtelecom.org/img/logo7.png, https://www.dtelecom.org/img/logo7@2x.png 2x">
+                                                <img src="https://www.dtelecom.org/img/logo7.png" alt="image" srcset="https://www.dtelecom.org/img/logo7@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="b2" id="s2">
+                    <div class="container">
+                        <div class="badge-subtitle"><span class="badge-v1">Get Started</span></div>
+                        <h2 class="b2__title site-title text-center">
+                            What’s <span class="text-gradient-v1">your role</span><br>
+                            in the journey?
+                        </h2>
+                        <div class="b2__text text-v2 text-center">
+                            Discover how you can contribute to the future of decentralized communication
+                        </div>
+                        <div class="b2__cards">
+                            <div class="b2__col">
+                                <div class="card-v1">
+                                    <div class="card-v1__title">Developer</div>
+                                    <div class="card-v1__text">
+                                        Discover how to build real-time experiences in your app while saving up<div class="d-block d-lg-none"></div> to 95% with
+                                        the dTelecom Network
+                                    </div>
+                                    <div class="card-v1__image">
+                                        <picture>
+                                            <source srcset="https://www.dtelecom.org/img/webp/card-img-1.webp, https://www.dtelecom.org/img/webp/card-img-1@2x.webp 2x" type="image/webp">
+                                            <source srcset="https://www.dtelecom.org/img/card-img-1.png, https://www.dtelecom.org/img/card-img-1@2x.png 2x">
+                                            <img src="https://www.dtelecom.org/img/card-img-1.png" alt="image" srcset="https://www.dtelecom.org/img/card-img-1@2x.png 2x" class="img-fluid d-block">
+                                        </picture>
+                                    </div>
+                                    <div class="card-v1__link">
+                                        <a href="#" class="open-modal">Build on dTelecom &gt;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b2__col">
+                                <div class="card-v1">
+                                    <div class="card-v1__title">Node Operator</div>
+                                    <div class="card-v1__text">
+                                        Run a node to deliver low-latency, private, borderless audio/video connectivity and earn 75% of customer payments
+                                    </div>
+                                    <div class="card-v1__image">
+                                        <picture>
+                                            <source srcset="https://www.dtelecom.org/img/webp/card-img-2.webp, https://www.dtelecom.org/img/webp/card-img-2@2x.webp 2x" type="image/webp">
+                                            <source srcset="https://www.dtelecom.org/img/card-img-2.png, https://www.dtelecom.org/img/card-img-2@2x.png 2x">
+                                            <img src="https://www.dtelecom.org/img/card-img-2.png" alt="image" srcset="https://www.dtelecom.org/img/card-img-2@2x.png 2x" class="img-fluid d-block">
+                                        </picture>
+                                    </div>
+                                    <div class="card-v1__link">
+                                        <a href="#" class="open-modal">Provide Bandwidth &gt;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b2__col">
+                                <div class="card-v1 spec-card">
+                                    <div class="spec-card__content">
+                                        <div class="card-v1__title">Community</div>
+                                        <div class="card-v1__text">
+                                            Join in shaping the future of communication through network governance, ecosystem development, events, and more
+                                        </div>
+                                        <div class="card-v1__link no-img">
+                                            <a href="#" class="open-modal">Become a Part &gt;</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b2__video-col">
+                                <div class="b2__video">
+                                    <video autoplay="autoplay" playsinline="" webkit-playsinline="" loop="loop" muted="muted" preload="auto" disablepictureinpicture="">
+                                        <source src="https://www.dtelecom.org/video/robot2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="b3" id="s3">
+                    <div class="container">
+                        <div class="badge-subtitle"><span class="badge-v1">Network</span></div>
+                        <h2 class="b3__title site-title text-center">
+                            <span class="text-gradient-v1">Revolutionizing</span><br>
+                            real-time communication
+                        </h2>
+                        <div class="b3__text text-v2 text-center">
+                            with a decentralized, low latency,<div class="d-block d-lg-none"></div> and resilient network to empower seamless access
+                        </div>
+                        <div class="b3__stat">
+                            <div class="stat-card-v1 one">
+                                <div class="stat-card-v1__text-a" id="meetings-count" data-int="00000">
+                                    <div class="count-anim"></div>
+                                    <i class="icon"></i>
+                                </div>
+                                <div class="stat-card-v1__text-b">Meetings Conducted</div>
+                            </div>
+                            <div class="stat-card-v1 two">
+                                <div class="stat-card-v1__text-a" id="minutes-count" data-int="00000000">
+                                    <div class="count-anim"></div>
+                                    <i class="icon"></i>
+                                </div>
+                                <div class="stat-card-v1__text-b">Minutes of usage</div>
+                            </div>
+                            <div class="stat-card-v1 three">
+                                <div class="stat-card-v1__text-a" id="users-count" data-int="0000">
+                                    <div class="count-anim"></div>
+                                    <i class="icon"></i>
+                                </div>
+                                <div class="stat-card-v1__text-b">Active Users</div>
+                            </div>
+                        </div>
+                        <div class="b3__cards">
+                            <div class="b3__col1">
+                                <div class="card-v2 one">
+                                    <div class="card-v2__title">Cost Effective</div>
+                                    <div class="card-v2__text">Save up to 95%, boost efficiency, and earn with the network’s smart ecosystem</div>
+                                    <div class="card-v2__decor-a">
+                                        <div class="left">
+                                            <div class="text-a">Save up to</div>
+                                            <div class="text-b">95%</div>
+                                        </div>
+                                        <div class="right">
+                                            <img src="https://www.dtelecom.org/img/card2-a.svg" alt="image" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b3__col2">
+                                <div class="card-v2 three">
+                                    <div class="card-v2__title">Robust Security</div>
+                                    <div class="card-v2__text">Fortified by decentralized architecture, dTelecom keeps data safe from threats</div>
+                                    <div class="card-v2__decor-c">
+                                        <video autoplay="autoplay" playsinline="" webkit-playsinline="" loop="loop" muted="muted" preload="auto" disablepictureinpicture="">
+                                            <source src="https://www.dtelecom.org/video/blocks2.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b3__col2">
+                                <div class="card-v2 two">
+                                    <div class="card-v2__title">Low Latency</div>
+                                    <div class="card-v2__text">dTelecom Network supports 100,000 participants with<div class="d-none d-lg-block"></div> &lt; 100ms latency</div>
+                                    <div class="card-v2__decor-b d-none d-lg-block">
+                                        <picture>
+                                            <img src="https://www.dtelecom.org/img/b3-card-2-4.svg" alt="image" class="img-fluid d-block">
+                                        </picture>
+                                    </div>
+                                    <div class="card-v2__decor-b d-block d-lg-none">
+                                        <picture>
+                                            <source srcset="https://www.dtelecom.org/img/webp/b3-card-2-md.webp, https://www.dtelecom.org/img/webp/b3-card-2-md@2x.webp 2x" type="image/webp">
+                                            <source srcset="https://www.dtelecom.org/img/b3-card-2-md.png, https://www.dtelecom.org/img/b3-card-2-md@2x.png 2x">
+                                            <img src="https://www.dtelecom.org/img/b3-card-2-md.png" alt="image" srcset="https://www.dtelecom.org/img/b3-card-2-md@2x.png 2x" class="img-fluid d-block">
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b3__col2">
+                                <div class="card-v2 four">
+                                    <div class="card-v2__title">Open Source</div>
+                                    <div class="card-v2__text">Open to everyone, allowing anyone to use or build<div class="d-none d-lg-block"></div> on top of it</div>
+                                    <div class="card-v2__decor-d">
+                                        <picture>
+                                            <source srcset="https://www.dtelecom.org/img/webp/card2-b.webp, https://www.dtelecom.org/img/webp/card2-b@2x.webp 2x" type="image/webp">
+                                            <source srcset="https://www.dtelecom.org/img/card2-b.png, https://www.dtelecom.org/img/card2-b@2x.png 2x">
+                                            <img src="https://www.dtelecom.org/img/card2-b.png" alt="image" srcset="https://www.dtelecom.org/img/card2-b@2x.png 2x" class="img-fluid d-block">
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b3__col2">
+                                <div class="card-v2 five">
+                                    <div class="card-v2__title">Censorship<br> Resistant</div>
+                                    <div class="card-v2__text">dTelecom ensures borderless, censorship-free communication<div class="d-block d-lg-none"></div> without data tracking</div>
+                                    <div class="card-v2__decor-f">
+                                        <video autoplay="autoplay" playsinline="" webkit-playsinline="" loop="loop" muted="muted" preload="auto" disablepictureinpicture="">
+                                            <source src="https://www.dtelecom.org/video/chain2.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b3__col2">
+                                <div class="card-v2 six">
+                                    <div class="card-v2__title">DePIN Design</div>
+                                    <div class="card-v2__text">People-powered, turning users into active contributors to the network’s success</div>
+                                    <div class="card-v2__decor-g">
+                                        <picture>
+                                            <source media="(max-width: 991px)" srcset="https://www.dtelecom.org/img/webp/planet2-md.webp, https://www.dtelecom.org/img/webp/planet2-md@2x.webp 2x" type="image/webp">
+                                            <source media="(max-width: 991px)" srcset="https://www.dtelecom.org/img/planet2-md.png, https://www.dtelecom.org/img/planet2-md@2x.png 2x">
+                                            <source srcset="https://www.dtelecom.org/img/webp/planet2.webp, https://www.dtelecom.org/img/webp/planet2@2x.webp 2x" type="image/webp">
+                                            <source srcset="https://www.dtelecom.org/img/planet2.png, https://www.dtelecom.org/img/planet2@2x.png 2x">
+                                            <img src="https://www.dtelecom.org/img/planet2.png" alt="image" srcset="https://www.dtelecom.org/img/planet2@2x.png 2x" class="img-fluid d-block">
+                                          </picture>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b3__col2 b3__fix-decor">
+                                <div class="card-v2 seven">
+                                    <div class="card-v2__title">Built on Solana</div>
+                                    <div class="card-v2__text">High-speed, low-cost infrastructure for next-gen communication</div>
+                                    <div class="card-v2__decor-i">
+                                        <video autoplay="autoplay" playsinline="" webkit-playsinline="" loop="loop" muted="muted" preload="auto" disablepictureinpicture="">
+                                            <source media="(max-width: 991px)" src="https://www.dtelecom.org/video/solana_md.mp4" type="video/mp4">
+                                            <source src="https://www.dtelecom.org/video/solana.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="card-v2__decor-h">
+                                    <picture>
+                                        <source srcset="https://www.dtelecom.org/img/webp/card2-c2.webp, https://www.dtelecom.org/img/webp/card2-c2@2x.webp 2x" type="image/webp">
+                                        <source srcset="https://www.dtelecom.org/img/card2-c2.png, https://www.dtelecom.org/img/card2-c2@2x.png 2x">
+                                        <img src="https://www.dtelecom.org/img/card2-c2.png" alt="image" srcset="https://www.dtelecom.org/img/card2-c2@2x.png 2x" class="img-fluid d-block">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b3__bottom">
+                            <div class="b3__text-bottom text-center">
+                                Anyone can participate in owning, governing, and securing <span>dTelecom</span> with <span>DTEL,</span><div class="d-none d-lg-block"></div> the network’s native token
+                            </div>
+                            <div class="b3__btn text-center">
+                                <a href="https://dtelecom.org/dTelecom_whitepaper.pdf" target="_blank" class="btn-v2">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="b3__decor">
+                            <picture>
+                                <source media="(max-width: 991px)" srcset="https://www.dtelecom.org/img/webp/b3-decor-md.webp, https://www.dtelecom.org/img/webp/b3-decor-md@2x.webp 2x" type="image/webp">
+                                <source media="(max-width: 991px)" srcset="https://www.dtelecom.org/img/b3-decor-md.png, https://www.dtelecom.org/img/b3-decor-md@2x.png 2x">
+                                <source srcset="https://www.dtelecom.org/img/webp/b3-decor.webp, https://www.dtelecom.org/img/webp/b3-decor@2x.webp 2x" type="image/webp">
+                                <source srcset="https://www.dtelecom.org/img/b3-decor.png, https://www.dtelecom.org/img/b3-decor@2x.png 2x">
+                                <img src="https://www.dtelecom.org/img/b3-decor.png" alt="image" srcset="https://www.dtelecom.org/img/b3-decor@2x.png 2x" class="img-fluid d-block">
+                              </picture>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="b4" id="s4">
+                    <div class="container">
+                        <div class="badge-subtitle"><span class="badge-v1">AI Capabilities</span></div>
+                        <h2 class="b4__title site-title text-center">
+                            <span class="text-gradient-v1">Community-</span><span class="text-gradient-v1">Driven AI</span><div class="d-none d-lg-block"></div> in dRTC Network
+                        </h2>
+                        <div class="b4__text text-v2 text-center">
+                            Transforming real-time communication with the power<div class="d-block d-lg-none"></div> of AI and decentralization
+                        </div>
+                        <div class="b4__cards">
+                            <div class="b4__col1">
+                                <div class="card-v3">
+                                    <div class="card-v3__top">
+                                        <div class="card-v3__icon">
+                                            <img src="https://www.dtelecom.org/img/b4-icon1.svg" alt="icon" class="img-fluid">
+                                        </div>
+                                        <div class="card-v3__title">
+                                            Real-Time<br> Optimization
+                                        </div>
+                                    </div>
+                                    <div class="card-v3__text">Dynamic traffic routing, media quality enhancements, and latency reduction</div>
+                                </div>
+                            </div>
+                            <div class="b4__col2">
+                                <div class="card-v3">
+                                    <div class="card-v3__top">
+                                        <div class="card-v3__icon">
+                                            <img src="https://www.dtelecom.org/img/b4-icon2.svg" alt="icon" class="img-fluid">
+                                        </div>
+                                        <div class="card-v3__title">
+                                            Enhanced<br> User Experience
+                                        </div>
+                                    </div>
+                                    <div class="card-v3__text">Real-time translations, STT/TTS, voice cloning, noise suppression, and echo cancellation</div>
+                                </div>
+                            </div>
+                            <div class="b4__col3">
+                                <div class="card-v3">
+                                    <div class="card-v3__top">
+                                        <div class="card-v3__icon">
+                                            <img src="https://www.dtelecom.org/img/b4-icon3.svg" alt="icon" class="img-fluid">
+                                        </div>
+                                        <div class="card-v3__title">
+                                            Security<br> and Moderation
+                                        </div>
+                                    </div>
+                                    <div class="card-v3__text">Content filtering, spam detection, and E2EE for secure communication</div>
+                                </div>
+                            </div>
+                            <div class="b4__col1">
+                                <div class="card-v3">
+                                    <div class="card-v3__top">
+                                        <div class="card-v3__icon">
+                                            <img src="https://www.dtelecom.org/img/b4-icon4.svg" alt="icon" class="img-fluid">
+                                        </div>
+                                        <div class="card-v3__title">
+                                            Developer<br> Ecosystem
+                                        </div>
+                                    </div>
+                                    <div class="card-v3__text">Build custom AI agents, monetize solutions, and expand the dTelecom platform</div>
+                                </div>
+                            </div>
+                            <div class="b4__col2">
+                                <div class="card-v3">
+                                    <div class="card-v3__top">
+                                        <div class="card-v3__icon">
+                                            <img src="https://www.dtelecom.org/img/b4-icon5.svg" alt="icon" class="img-fluid">
+                                        </div>
+                                        <div class="card-v3__title">
+                                            Scalable AI<br> Workloads
+                                        </div>
+                                    </div>
+                                    <div class="card-v3__text">Community servers handle AI tasks, earning token rewards for contributions</div>
+                                </div>
+                            </div>
+                            <div class="b4__col3">
+                                <div class="card-v3">
+                                    <div class="card-v3__top">
+                                        <div class="card-v3__icon">
+                                            <img src="https://www.dtelecom.org/img/b4-icon6.svg" alt="icon" class="img-fluid">
+                                        </div>
+                                        <div class="card-v3__title">
+                                            Future-Proof<br> Technology
+                                        </div>
+                                    </div>
+                                    <div class="card-v3__text">AI intelligently manages the network, ensuring optimized performance and seamless scalability</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="b5" id="s5">
+                    <div class="container">
+                        <div class="badge-subtitle"><span class="badge-v1">Build</span></div>
+                        <h2 class="b5__title site-title text-center">
+                            Use dTelecom SDKs<div class="d-none d-lg-block"></div>
+                            to <span class="text-gradient-v1">build real-time voice, video, and chat</span><div class="d-none d-lg-block"></div>
+                            in your application
+                        </h2>
+                        <div class="b5__text text-v2 color-1 text-center">
+                            Start for free and save up to 95%
+                        </div>
+
+                        <div id="b5-tab" class="b5__tabs tabs-v1 d-none d-lg-block">
+                            <div class="tabs-v1__row">
+                                <div class="tabs-v1__col1">
+                                    <ul class="tabs-v1__nav part-a">
+                                        <li class="tabs-v1__nav-item">
+                                            <a href="#" class="card-v4 active open-modal" data-image="1">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab1.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab1-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Voice<br> Calling</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="tabs-v1__nav-item">
+                                            <a href="#" class="card-v4 open-modal" data-image="2">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab2.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab2-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Video<br> Conferencing</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="tabs-v1__nav-item">
+                                            <a href="#" class="card-v4 open-modal" data-image="3">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab3.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab3-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Interactive<br> Livestreaming</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="tabs-v1__nav-item">
+                                            <a href="#" class="card-v4 open-modal" data-image="4">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab4.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab4-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Broadcast<br> Streaming</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tabs-v1__col2">
+                                    <ul class="tabs-v1__images">
+                                        <li class="tabs-v1__item active" data-tab="1">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/tab1-img.webp, https://www.dtelecom.org/img/webp/tab1-img@2x.webp 2x" type="image/webp">
+                                                <source srcset="https://www.dtelecom.org/img/tab1-img.png, https://www.dtelecom.org/img/tab1-img@2x.png 2x">
+                                                <img src="https://www.dtelecom.org/img/tab1-img.png" alt="image" srcset="https://www.dtelecom.org/img/tab1-img@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </li>
+                                        <li class="tabs-v1__item" data-tab="2">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/tab8-2-img.webp, https://www.dtelecom.org/img/webp/tab8-2-img@2x.webp 2x" type="image/webp">
+                                                <source srcset="https://www.dtelecom.org/img/tab8-2-img.png, https://www.dtelecom.org/img/tab8-2-img@2x.png 2x">
+                                                <img src="https://www.dtelecom.org/img/tab8-2-img.png" alt="image" srcset="https://www.dtelecom.org/img/tab8-2-img@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </li>
+                                        <li class="tabs-v1__item" data-tab="3">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/tab3-img.webp, https://www.dtelecom.org/img/webp/tab3-img@2x.webp 2x" type="image/webp">
+                                                <source srcset="https://www.dtelecom.org/img/tab3-img.png, https://www.dtelecom.org/img/tab3-img@2x.png 2x">
+                                                <img src="https://www.dtelecom.org/img/tab3-img.png" alt="image" srcset="https://www.dtelecom.org/img/tab3-img@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </li>
+                                        <li class="tabs-v1__item" data-tab="4">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/tab4-img.webp, https://www.dtelecom.org/img/webp/tab4-img@2x.webp 2x" type="image/webp">
+                                                <source srcset="https://www.dtelecom.org/img/tab4-img.png, https://www.dtelecom.org/img/tab4-img@2x.png 2x">
+                                                <img src="https://www.dtelecom.org/img/tab4-img.png" alt="image" srcset="https://www.dtelecom.org/img/tab4-img@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </li>
+                                        <li class="tabs-v1__item" data-tab="5">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/tab5-img.webp, https://www.dtelecom.org/img/webp/tab5-img@2x.webp 2x" type="image/webp">
+                                                <source srcset="https://www.dtelecom.org/img/tab5-img.png, https://www.dtelecom.org/img/tab5-img@2x.png 2x">
+                                                <img src="https://www.dtelecom.org/img/tab5-img.png" alt="image" srcset="https://www.dtelecom.org/img/tab5-img@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </li>
+                                        <li class="tabs-v1__item" data-tab="6">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/tab6-img.webp, https://www.dtelecom.org/img/webp/tab6-img@2x.webp 2x" type="image/webp">
+                                                <source srcset="https://www.dtelecom.org/img/tab6-img.png, https://www.dtelecom.org/img/tab6-img@2x.png 2x">
+                                                <img src="https://www.dtelecom.org/img/tab6-img.png" alt="image" srcset="https://www.dtelecom.org/img/tab6-img@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </li>
+                                        <li class="tabs-v1__item" data-tab="7">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/tab7-img.webp, https://www.dtelecom.org/img/webp/tab7-img@2x.webp 2x" type="image/webp">
+                                                <source srcset="https://www.dtelecom.org/img/tab7-img.png, https://www.dtelecom.org/img/tab7-img@2x.png 2x">
+                                                <img src="https://www.dtelecom.org/img/tab7-img.png" alt="image" srcset="https://www.dtelecom.org/img/tab7-img@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </li>
+                                        <li class="tabs-v1__item" data-tab="8">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/tab8-img.webp, https://www.dtelecom.org/img/webp/tab8-img@2x.webp 2x" type="image/webp">
+                                                <source srcset="https://www.dtelecom.org/img/tab8-img.png, https://www.dtelecom.org/img/tab8-img@2x.png 2x">
+                                                <img src="https://www.dtelecom.org/img/tab8-img.png" alt="image" srcset="https://www.dtelecom.org/img/tab8-img@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tabs-v1__col1">
+                                    <ul class="tabs-v1__nav part-b">
+                                        <li class="tabs-v1__nav-item">
+                                            <a href="#" class="card-v4 open-modal" data-image="5">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab5.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab5-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">AI Voice Agent</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="tabs-v1__nav-item">
+                                            <a href="#" class="card-v4 open-modal" data-image="6">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab6.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab6-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Chat</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="tabs-v1__nav-item">
+                                            <a href="#" class="card-v4 open-modal" data-image="7">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab7.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab7-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Interactive<br> Whiteboard</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="tabs-v1__nav-item">
+                                            <a href="#" class="card-v4 open-modal" data-image="8">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab8.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab8-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Signaling</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="b5__build d-block d-lg-none">
+                            <div class="build-slider__wrap">
+                                <div class="build-slider-nav swiper site-slider">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="card-v4">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab1.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab1-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Voice<br> Calling</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="card-v4">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab2.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab2-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Video<br> Conferencing</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="card-v4">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab3.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab3-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Interactive<br> Livestreaming</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="card-v4">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab4.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab4-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Broadcast<br> Streaming</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="card-v4">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab5.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab5-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">AI Voice Agent</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="card-v4">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab6.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab6-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Chat</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="card-v4">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab7.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab7-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Interactive<br> Whiteboard</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="card-v4">
+                                                <div class="card-v4__content">
+                                                    <div class="card-v4__icon">
+                                                        <img src="https://www.dtelecom.org/img/tab8.svg" alt="icon" class="img-fluid normal-state">
+                                                        <img src="https://www.dtelecom.org/img/tab8-active.svg" alt="icon" class="img-fluid active-state">
+                                                    </div>
+                                                    <div class="card-v4__text">Signaling</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="build-slider swiper site-slider">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="build-img">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/tab1-img-md.webp, https://www.dtelecom.org/img/webp/tab1-img-md@2x.webp 2x" type="image/webp">
+                                                    <source srcset="https://www.dtelecom.org/img/tab1-img-md.png, https://www.dtelecom.org/img/tab1-img-md@2x.png 2x">
+                                                    <img src="https://www.dtelecom.org/img/tab1-img-md.png" alt="image" srcset="https://www.dtelecom.org/img/tab1-img-md@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="build-img">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/tab2-2-img-md.webp, https://www.dtelecom.org/img/webp/tab2-2-img-md@2x.webp 2x" type="image/webp">
+                                                    <source srcset="https://www.dtelecom.org/img/tab2-2-img-md.png, https://www.dtelecom.org/img/tab2-2-img-md@2x.png 2x">
+                                                    <img src="https://www.dtelecom.org/img/tab2-2-img-md.png" alt="image" srcset="https://www.dtelecom.org/img/tab2-2-img-md@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="build-img">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/tab3-img-md.webp, https://www.dtelecom.org/img/webp/tab3-img-md@2x.webp 2x" type="image/webp">
+                                                    <source srcset="https://www.dtelecom.org/img/tab3-img-md.png, https://www.dtelecom.org/img/tab3-img-md@2x.png 2x">
+                                                    <img src="https://www.dtelecom.org/img/tab3-img-md.png" alt="image" srcset="https://www.dtelecom.org/img/tab3-img-md@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="build-img">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/tab4-img-md.webp, https://www.dtelecom.org/img/webp/tab4-img-md@2x.webp 2x" type="image/webp">
+                                                    <source srcset="https://www.dtelecom.org/img/tab4-img-md.png, https://www.dtelecom.org/img/tab4-img-md@2x.png 2x">
+                                                    <img src="https://www.dtelecom.org/img/tab4-img-md.png" alt="image" srcset="https://www.dtelecom.org/img/tab4-img-md@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="build-img">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/tab5-img-md.webp, https://www.dtelecom.org/img/webp/tab5-img-md@2x.webp 2x" type="image/webp">
+                                                    <source srcset="https://www.dtelecom.org/img/tab5-img-md.png, https://www.dtelecom.org/img/tab5-img-md@2x.png 2x">
+                                                    <img src="https://www.dtelecom.org/img/tab5-img-md.png" alt="image" srcset="https://www.dtelecom.org/img/tab5-img-md@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="build-img">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/tab6-img-md.webp, https://www.dtelecom.org/img/webp/tab6-img-md@2x.webp 2x" type="image/webp">
+                                                    <source srcset="https://www.dtelecom.org/img/tab6-img-md.png, https://www.dtelecom.org/img/tab6-img-md@2x.png 2x">
+                                                    <img src="https://www.dtelecom.org/img/tab6-img-md.png" alt="image" srcset="https://www.dtelecom.org/img/tab6-img-md@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="build-img">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/tab7-img-md.webp, https://www.dtelecom.org/img/webp/tab7-img-md@2x.webp 2x" type="image/webp">
+                                                    <source srcset="https://www.dtelecom.org/img/tab7-img-md.png, https://www.dtelecom.org/img/tab7-img-md@2x.png 2x">
+                                                    <img src="https://www.dtelecom.org/img/tab7-img-md.png" alt="image" srcset="https://www.dtelecom.org/img/tab7-img-md@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="build-img">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/tab8-img-md.webp, https://www.dtelecom.org/img/webp/tab8-img-md@2x.webp 2x" type="image/webp">
+                                                    <source srcset="https://www.dtelecom.org/img/tab8-img-md.png, https://www.dtelecom.org/img/tab8-img-md@2x.png 2x">
+                                                    <img src="https://www.dtelecom.org/img/tab8-img-md.png" alt="image" srcset="https://www.dtelecom.org/img/tab8-img-md@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="b5__btn text-center">
+                            <a href="#" class="btn-v2 open-modal">Build for Free</a>
+                            <div class="b5__desc">No credit card required</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="b6" id="s6">
+                    <div class="container">
+                        <div class="badge-subtitle"><span class="badge-v1">Use</span></div>
+                        <h2 class="b6__title site-title text-center">
+                            <span class="text-gradient-v1">Explore the future</span><br>
+                            of real-time communication
+                        </h2>
+                        <div class="b5__text text-v2 text-center">
+                            through dApps built on dTelecom
+                        </div>
+
+                        <div class="b6__content">
+                            <div class="use">
+                                <div class="use__row">
+                                    <div class="use__col">
+                                        <div class="use-card">
+                                            <div class="use-card__image">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/use-img5-2.webp, https://www.dtelecom.org/img/webp/use-img5-2@2x.webp 2x" type="image/webp" media="(min-width: 992px)">
+                                                    <source srcset="https://www.dtelecom.org/img/use-img5-2.png, https://www.dtelecom.org/img/use-img5-2@2x.png 2x" media="(min-width: 992px)">
+                                                    <source srcset="https://www.dtelecom.org/img/webp/use-img5-2-md.webp, https://www.dtelecom.org/img/webp/use-img5-2-md@2x.webp 2x" type="image/webp" media="(max-width: 991px)">
+                                                    <source srcset="https://www.dtelecom.org/img/use-img5-2-md.png, https://www.dtelecom.org/img/use-img5-2-md@2x.png 2x" media="(max-width: 991px)">
+                                                    <img src="https://www.dtelecom.org/img/use-img5-2.png" alt="image" srcset="https://www.dtelecom.org/img/use-img5-2@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                            <div class="use-card__desc">dApp built on dTelecom</div>
+                                            <div class="use-card__title">FROGY</div>
+                                            <div class="use-card__text">A live-streaming platform for creators and real-time entertainment. 90% Payouts to Creators. Instant USDC Withdrawals</div>
+                                            <div class="use-card__btns">
+                                                <a href="#" class="btn-v3 btn-v3--sm btn-v3--icon btn-v3--single open-modal">Try Web App <img src="https://www.dtelecom.org/img/icon-arrow.svg" alt="icon"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="use__col">
+                                        <div class="use-card">
+                                            <div class="use-card__image">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/use-img3-3.webp, https://www.dtelecom.org/img/webp/use-img3-3@2x.webp 2x" type="image/webp" media="(min-width: 992px)">
+                                                    <source srcset="https://www.dtelecom.org/img/use-img3-3.png, https://www.dtelecom.org/img/use-img3-3@2x.png 2x" media="(min-width: 992px)">
+                                                    <source srcset="https://www.dtelecom.org/img/webp/use-img3-3-md.webp, https://www.dtelecom.org/img/webp/use-img3-3-md@2x.webp 2x" type="image/webp" media="(max-width: 991px)">
+                                                    <source srcset="https://www.dtelecom.org/img/use-img3-3-md.png, https://www.dtelecom.org/img/use-img3-3-md@2x.png 2x" media="(max-width: 991px)">
+                                                    <img src="https://www.dtelecom.org/img/use-img3-3.png" alt="image" srcset="https://www.dtelecom.org/img/use-img3-3@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                            <div class="use-card__desc">dApp built on dTelecom</div>
+                                            <div class="use-card__title">Video Conferencing</div>
+                                            <div class="use-card__text">A free, open-source web application<div class="d-block d-lg-none"></div> for video conferencing<div class="d-none d-lg-block"></div>  with built-in<div class="d-block d-lg-none"></div> AI voice translation</div>
+                                            <div class="use-card__btns">
+                                                <a href="https://github.com/dTelecom/conference-example" class="btn-v2 btn-v2--sm btn-v2--icon" target="_blank"><img src="https://www.dtelecom.org/img/github.svg" alt="icon"> View code</a>
+                                                <a href="#" class="btn-v3 btn-v3--sm btn-v3--icon open-modal">Try Web App <img src="https://www.dtelecom.org/img/icon-arrow.svg" alt="icon"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="use__col full-col">
+                                        <div class="use-card use-card--hr">
+                                            <div class="use-card__image">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/use-img4-2.webp, https://www.dtelecom.org/img/webp/use-img4-2@2x.webp 2x" type="image/webp" media="(min-width: 992px)">
+                                                    <source srcset="https://www.dtelecom.org/img/use-img4-2.png, https://www.dtelecom.org/img/use-img4-2@2x.png 2x" media="(min-width: 992px)">
+                                                    <source srcset="https://www.dtelecom.org/img/webp/use-img4-2-md.webp, https://www.dtelecom.org/img/webp/use-img4-2-md@2x.webp 2x" type="image/webp" media="(max-width: 991px)">
+                                                    <source srcset="https://www.dtelecom.org/img/use-img4-2-md.png, https://www.dtelecom.org/img/use-img4-2-md@2x.png 2x" media="(max-width: 991px)">
+                                                    <img src="https://www.dtelecom.org/img/use-img4-2.png" alt="image" srcset="https://www.dtelecom.org/img/use-img4-2@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                            <div class="use-card__content">
+                                                <div class="use-card__desc">dApp built on dTelecom</div>
+                                                <div class="use-card__title">Conversational AI</div>
+                                                <div class="use-card__text">A free, open-source web app for live audio conversations with an AI<div class="d-none d-lg-block"></div> Voice Agent. Hear and talk with ChatGPT<div class="d-block d-lg-none"></div> in real time</div>
+                                                <div class="use-card__btns">
+                                                    <a href="https://github.com/dTelecom/ai.dmeet.org" class="btn-v2 btn-v2--sm btn-v2--icon" target="_blank"><img src="https://www.dtelecom.org/img/github.svg" alt="icon"> View code</a>
+                                                    <a href="#" class="btn-v3 btn-v3--sm btn-v3--icon open-modal">Try Web App <img src="https://www.dtelecom.org/img/icon-arrow.svg" alt="icon"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="use__col">
+                                        <div class="use-card">
+                                            <div class="use-card__image">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/use-img1-2.webp, https://www.dtelecom.org/img/webp/use-img1-2@2x.webp 2x" type="image/webp" media="(min-width: 992px)">
+                                                    <source srcset="https://www.dtelecom.org/img/use-img1-2.png, https://www.dtelecom.org/img/use-img1-2@2x.png 2x" media="(min-width: 992px)">
+                                                    <source srcset="https://www.dtelecom.org/img/webp/use-img1-2-md.webp, https://www.dtelecom.org/img/webp/use-img1-2-md@2x.webp 2x" type="image/webp" media="(max-width: 991px)">
+                                                    <source srcset="https://www.dtelecom.org/img/use-img1-2-md.png, https://www.dtelecom.org/img/use-img1-2-md@2x.png 2x" media="(max-width: 991px)">
+                                                    <img src="https://www.dtelecom.org/img/use-img1-2.png" alt="image" srcset="https://www.dtelecom.org/img/use-img1-2@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                            <div class="use-card__desc">dApp built on dTelecom</div>
+                                            <div class="use-card__title">Livestreaming</div>
+                                            <div class="use-card__text">A free, open-source web app for livestreaming—join streams<br> or start your own effortlessly</div>
+                                            <div class="use-card__btns">
+                                                <a href="https://github.com/dTelecom/live.dmeet.org" class="btn-v2 btn-v2--sm btn-v2--icon" target="_blank"><img src="https://www.dtelecom.org/img/github.svg" alt="icon"> View code</a>
+                                                <a href="#" class="btn-v3 btn-v3--sm btn-v3--icon open-modal">Try Web App <img src="https://www.dtelecom.org/img/icon-arrow.svg" alt="icon"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="use__col">
+                                        <div class="use-card">
+                                            <div class="use-card__image">
+                                                <picture>
+                                                    <source srcset="https://www.dtelecom.org/img/webp/use-img2-2.webp, https://www.dtelecom.org/img/webp/use-img2-2@2x.webp 2x" type="image/webp" media="(min-width: 992px)">
+                                                    <source srcset="https://www.dtelecom.org/img/use-img2-2.png, https://www.dtelecom.org/img/use-img2-2@2x.png 2x" media="(min-width: 992px)">
+                                                    <source srcset="https://www.dtelecom.org/img/webp/use-img2-2-md.webp, https://www.dtelecom.org/img/webp/use-img2-2-md@2x.webp 2x" type="image/webp" media="(max-width: 991px)">
+                                                    <source srcset="https://www.dtelecom.org/img/use-img2-2-md.png, https://www.dtelecom.org/img/use-img2-2-md@2x.png 2x" media="(max-width: 991px)">
+                                                    <img src="https://www.dtelecom.org/img/use-img2-2.png" alt="image" srcset="https://www.dtelecom.org/img/use-img2-2@2x.png 2x" class="img-fluid d-block">
+                                                </picture>
+                                            </div>
+                                            <div class="use-card__desc">dApp built on dTelecom</div>
+                                            <div class="use-card__title">Spatial Meeting</div>
+                                            <div class="use-card__text">An open-source, free 2D world where you can interact, see, and hear others with spatial stereo audio</div>
+                                            <div class="use-card__btns">
+                                                <a href="https://github.com/dTelecom/spatial-audio" class="btn-v2 btn-v2--sm btn-v2--icon" target="_blank"><img src="https://www.dtelecom.org/img/github.svg" alt="icon"> View code</a>
+                                                <a href="https://spatial.dmeet.org" class="btn-v3 btn-v3--sm btn-v3--icon" target="_blank">Try Web App <img src="https://www.dtelecom.org/img/icon-arrow.svg" alt="icon"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="b7" id="s7">
+                    <div class="container">
+                        <div class="badge-subtitle"><span class="badge-v1">Earn</span></div>
+                        <h2 class="b7__title site-title text-center">
+                            <span class="text-gradient-v1">Be part</span> of the decentralized<br>
+                            Real-Time Communication Network
+                        </h2>
+                        <div class="b5__text text-v2 text-center">
+                            as a Node Operator, active Points earner, or trusted Affiliate partner
+                        </div>
+
+                        <div class="earn">
+                            <div class="earn__row">
+                                <div class="earn__col">
+                                    <div class="earn-card">
+                                        <div class="earn-card__bg">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/earn-bg1.webp, https://www.dtelecom.org/img/webp/earn-bg1@2x.webp 2x" type="image/webp" media="(min-width: 992px)">
+                                                <source srcset="https://www.dtelecom.org/img/earn-bg1.png, https://www.dtelecom.org/img/earn-bg1@2x.png 2x" media="(min-width: 992px)">
+                                                <source srcset="https://www.dtelecom.org/img/webp/earn-bg1-md.webp, https://www.dtelecom.org/img/webp/earn-bg1-md@2x.webp 2x" type="image/webp" media="(max-width: 991px)">
+                                                <source srcset="https://www.dtelecom.org/img/earn-bg1-md.png, https://www.dtelecom.org/img/earn-bg1-md@2x.png 2x" media="(max-width: 991px)">
+                                                <img src="https://www.dtelecom.org/img/earn-bg1.png" alt="image" srcset="https://www.dtelecom.org/img/earn-bg1@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </div>
+                                        <div class="earn-card__content">
+                                            <div class="earn-card__icon">
+                                                <img src="https://www.dtelecom.org/img/arrow.svg" alt="icon">
+                                            </div>
+                                            <div class="earn-card__title">Run a Node</div>
+                                            <div class="earn-card__text">Run a node to deliver low-latency, private, borderless audio/video connectivity and earn 75% of customer payments</div>
+                                            <div class="earn-card__btn">
+                                                <a href="#" class="btn-v2 open-modal">Become a Node Operator</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="earn__col">
+                                    <div class="earn-card">
+                                        <div class="earn-card__bg">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/earn-bg2.webp, https://www.dtelecom.org/img/webp/earn-bg2@2x.webp 2x" type="image/webp" media="(min-width: 992px)">
+                                                <source srcset="https://www.dtelecom.org/img/earn-bg2.png, https://www.dtelecom.org/img/earn-bg2@2x.png 2x" media="(min-width: 992px)">
+                                                <source srcset="https://www.dtelecom.org/img/webp/earn-bg2-md.webp, https://www.dtelecom.org/img/webp/earn-bg2-md@2x.webp 2x" type="image/webp" media="(max-width: 991px)">
+                                                <source srcset="https://www.dtelecom.org/img/earn-bg2-md.png, https://www.dtelecom.org/img/earn-bg2-md@2x.png 2x" media="(max-width: 991px)">
+                                                <img src="https://www.dtelecom.org/img/earn-bg2.png" alt="image" srcset="https://www.dtelecom.org/img/earn-bg2@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </div>
+                                        <div class="earn-card__content">
+                                            <div class="earn-card__icon">
+                                                <img src="https://www.dtelecom.org/img/arrow.svg" alt="icon">
+                                            </div>
+                                            <div class="earn-card__title">Airdrop</div>
+                                            <div class="earn-card__text">Earn points by using dTelecom apps, inviting others, and completing tasks — points can be exchanged for tokens and exclusive rewards</div>
+                                            <div class="earn-card__btn">
+                                                <a href="#" class="btn-v2 open-modal">Start Earning Points</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="earn__col">
+                                    <div class="earn-card">
+                                        <div class="earn-card__bg">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/earn-bg4.webp, https://www.dtelecom.org/img/webp/earn-bg4@2x.webp 2x" type="image/webp" media="(min-width: 992px)">
+                                                <source srcset="https://www.dtelecom.org/img/earn-bg4.png, https://www.dtelecom.org/img/earn-bg4@2x.png 2x" media="(min-width: 992px)">
+                                                <source srcset="https://www.dtelecom.org/img/webp/earn-bg4-md.webp, https://www.dtelecom.org/img/webp/earn-bg4-md@2x.webp 2x" type="image/webp" media="(max-width: 991px)">
+                                                <source srcset="https://www.dtelecom.org/img/earn-bg4-md.png, https://www.dtelecom.org/img/earn-bg4-md@2x.png 2x" media="(max-width: 991px)">
+                                                <img src="https://www.dtelecom.org/img/earn-bg4.png" alt="image" srcset="https://www.dtelecom.org/img/earn-bg4@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </div>
+                                        <div class="earn-card__content">
+                                            <div class="earn-card__icon">
+                                                <img src="https://www.dtelecom.org/img/arrow.svg" alt="icon">
+                                            </div>
+                                            <div class="earn-card__title">Validator</div>
+                                            <div class="earn-card__text">Earn 7–8% APY by staking SOL with dTelecom — unlock $DTEL airdrops and support decentralized communication</div>
+                                            <div class="earn-card__btn">
+                                                <a href="#" class="btn-v2 open-modal">Stake Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="earn__col">
+                                    <div class="earn-card">
+                                        <div class="earn-card__bg earn-card__bg-fix">
+                                            <picture>
+                                                <source srcset="https://www.dtelecom.org/img/webp/earn-bg5.webp, https://www.dtelecom.org/img/webp/earn-bg5@2x.webp 2x" type="image/webp" media="(min-width: 992px)">
+                                                <source srcset="https://www.dtelecom.org/img/earn-bg5.png, https://www.dtelecom.org/img/earn-bg5@2x.png 2x" media="(min-width: 992px)">
+                                                <source srcset="https://www.dtelecom.org/img/webp/earn-bg5-md.webp, https://www.dtelecom.org/img/webp/earn-bg5-md@2x.webp 2x" type="image/webp" media="(max-width: 991px)">
+                                                <source srcset="https://www.dtelecom.org/img/earn-bg5-md.png, https://www.dtelecom.org/img/earn-bg5-md@2x.png 2x" media="(max-width: 991px)">
+                                                <img src="https://www.dtelecom.org/img/earn-bg5.png" alt="image" srcset="https://www.dtelecom.org/img/earn-bg5@2x.png 2x" class="img-fluid d-block">
+                                            </picture>
+                                        </div>
+                                        <div class="earn-card__content">
+                                            <div class="earn-card__icon">
+                                                <img src="https://www.dtelecom.org/img/arrow.svg" alt="icon">
+                                            </div>
+                                            <div class="earn-card__title">Affiliate<div class="d-none d-lg-block"></div> Program</div>
+                                            <div class="earn-card__text">Join dTelecom’s Affiliate Program, refer others to build on dTelecom using your link, and earn 15% from every paid referral</div>
+                                            <div class="earn-card__btn alt-pad">
+                                                <a href="#" class="btn-v2 open-modal">Become a Referral Partner</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="b8" id="s8">
+                    <div class="container">
+                        <div class="badge-subtitle"><span class="badge-v1">Join our Community</span></div>
+                        <h2 class="b8__title site-title text-center">
+                            Become part of the<div class="d-none d-lg-block"></div>
+                            <span class="text-gradient-v1">25,000+ dTelecom Family</span>
+                        </h2>
+                        <div class="b5__text text-v2 text-center">
+                            Connect, innovate, and grow together with us
+                        </div>
+
+                        <ul class="soc-list">
+                            <li class="soc-list__item">
+                                <a class="soc-card" href="https://x.com/dtelecom" target="_blank" rel="nofollow">
+                                    <div class="soc-card__icon">
+                                        <img src="https://www.dtelecom.org/img/soc/x.svg" alt="icon" class="img-fluid">
+                                    </div>
+                                    <div class="soc-card__name">X/Twitter</div>
+                                </a>
+                            </li>
+                            <li class="soc-list__item">
+                                <a class="soc-card" href="https://discord.gg/dtelecom" target="_blank" rel="nofollow">
+                                    <div class="soc-card__icon">
+                                        <img src="https://www.dtelecom.org/img/soc/discord.svg" alt="icon" class="img-fluid">
+                                    </div>
+                                    <div class="soc-card__name">Discord</div>
+                                </a>
+                            </li>
+                            <li class="soc-list__item">
+                                <a class="soc-card" href="https://warpcast.com/dtelecom" target="_blank" rel="nofollow">
+                                    <div class="soc-card__icon">
+                                        <img src="https://www.dtelecom.org/img/soc/farcaster.svg" alt="icon" class="img-fluid">
+                                    </div>
+                                    <div class="soc-card__name">Farcaster</div>
+                                </a>
+                            </li>
+                            <li class="soc-list__item">
+                                <a class="soc-card" href="https://t.me/dTelecomNetwork" target="_blank" rel="nofollow">
+                                    <div class="soc-card__icon">
+                                        <img src="https://www.dtelecom.org/img/soc/telegram.svg" alt="icon" class="img-fluid">
+                                    </div>
+                                    <div class="soc-card__name">Telegram</div>
+                                </a>
+                            </li>
+                            <li class="soc-list__item">
+                                <a class="soc-card" href="https://www.linkedin.com/company/dtel-org" target="_blank" rel="nofollow">
+                                    <div class="soc-card__icon">
+                                        <img src="https://www.dtelecom.org/img/soc/linkedin.svg" alt="icon" class="img-fluid">
+                                    </div>
+                                    <div class="soc-card__name">Linkedin</div>
+                                </a>
+                            </li>
+                            <li class="soc-list__item">
+                                <a class="soc-card" href="https://github.com/dTelecom" target="_blank" rel="nofollow">
+                                    <div class="soc-card__icon">
+                                        <img src="https://www.dtelecom.org/img/soc/github.svg" alt="icon" class="img-fluid">
+                                    </div>
+                                    <div class="soc-card__name">Github</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+			</main>
+
+			<footer class="site-footer">
+                <div class="container-xl">
+                    <div class="site-footer__section">
+                        <div class="site-footer__row">
+                            <div class="site-footer__col1 one">
+                                <div class="site-logo">
+                                    <a href="./">
+                                        <img src="https://www.dtelecom.org/img/logo.svg" alt="dTelecom" class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="site-footer__text">dTelecom is an open-source, decentralized real-time communication (dRTC) network.</div>
+                                <div class="powered-footer">
+                                    <div class="powered-footer__text">Built on</div>
+                                    <div class="powered-footer__logo"><img src="https://www.dtelecom.org/img/solana-logo2.svg" alt="icon" class="img-fluid"></div>
+                                </div>
+                                <ul class="soc-list-v2">
+                                    <li class="soc-list-v2__item">
+                                        <a href="https://x.com/dtelecom" target="_blank">
+                                            <img src="https://www.dtelecom.org/img/soc/x-sm.svg" alt="icon" class="img-fluid">
+                                        </a>
+                                    </li>
+                                    <li class="soc-list-v2__item">
+                                        <a href="https://discord.gg/dtelecom" target="_blank">
+                                            <img src="https://www.dtelecom.org/img/soc/discord-sm.svg" alt="icon" class="img-fluid">
+                                        </a>
+                                    </li>
+                                    <li class="soc-list-v2__item">
+                                        <a href="https://warpcast.com/dtelecom" target="_blank">
+                                            <img src="https://www.dtelecom.org/img/soc/farcaster-sm.svg" alt="icon" class="img-fluid">
+                                        </a>
+                                    </li>
+                                    <li class="soc-list-v2__item">
+                                        <a href="https://t.me/dTelecomNetwork" target="_blank">
+                                            <img src="https://www.dtelecom.org/img/soc/telegram-sm.svg" alt="icon" class="img-fluid">
+                                        </a>
+                                    </li>
+                                    <li class="soc-list-v2__item">
+                                        <a href="https://www.linkedin.com/company/dtel-org" target="_blank">
+                                            <img src="https://www.dtelecom.org/img/soc/linkedin-sm.svg" alt="icon" class="img-fluid">
+                                        </a>
+                                    </li>
+                                    <li class="soc-list-v2__item">
+                                        <a href="https://github.com/dTelecom" target="_blank">
+                                            <img src="https://www.dtelecom.org/img/soc/github-sm.svg" alt="icon" class="img-fluid">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="site-footer__col2 two">
+                                <div class="site-footer__menu">
+                                    <div class="site-footer__title">Network</div>
+                                    <ul class="link-list">
+                                        <li class="link-list__item">
+                                            <a href="#s3">dRTC Protocol</a>
+                                        </li>
+                                        <li class="link-list__item">
+                                            <a href="#s4">AI Capabilities</a>
+                                        </li>
+                                        <li class="link-list__item">
+                                            <a href="https://dtelecom.org/dTelecom_whitepaper.pdf" target="_blank">Whitepaper</a>
+                                        </li>
+                                        <li class="link-list__item">
+                                            <a href="https://docs.dtelecom.org" target="_blank">Docs</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="site-footer__col2 three">
+                                <div class="site-footer__menu">
+                                    <div class="site-footer__title">Build</div>
+                                    <ul class="link-list">
+                                        <li class="link-list__item">
+                                            <a href="https://video.dtelecom.org" target="_blank">Voice SDK</a>
+                                        </li>
+                                        <li class="link-list__item">
+                                            <a href="https://video.dtelecom.org" target="_blank">Video SDK</a>
+                                        </li>
+                                        <li class="link-list__item">
+                                            <a href="https://video.dtelecom.org" target="_blank">Streaming SDK</a>
+                                        </li>
+                                        <li class="link-list__item">
+                                            <a href="https://video.dtelecom.org" target="_blank">Chat SDK</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="site-footer__col2 four">
+                                <div class="site-footer__menu">
+                                    <div class="site-footer__title">Use</div>
+                                    <ul class="link-list">
+                                        <li class="link-list__item">
+                                            <a href="https://dmeet.org" target="_blank">Video Conferencing</a>
+                                        </li>
+                                        <li class="link-list__item">
+                                            <a href="https://live.dmeet.org" target="_blank">Livestreaming</a>
+                                        </li>
+                                         <li class="link-list__item">
+                                            <a href="https://ai.dmeet.org" target="_blank">AI Voice Agent</a>
+                                        </li>
+                                         <li class="link-list__item">
+                                            <a href="https://spatial.dmeet.org" target="_blank">Spatial Meeting</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="site-footer__col2 five">
+                                <div class="site-footer__menu">
+                                    <div class="site-footer__title">Earn</div>
+                                    <ul class="link-list">
+                                        <li class="link-list__item">
+                                            <a href="airdrop" target="_blank">Airdrop</a>
+                                        </li>
+                                        <li class="link-list__item">
+                                            <a href="https://forms.gle/nP6mZfbWBb3Jtvcq5" target="_blank">Run a Node</a>
+                                        </li>
+                                        <li class="link-list__item">
+                                            <a href="https://blog.dtelecom.org/introducing-the-official-dtelecom-validator-on-solana-3fa7adfc3a0b" target="_blank">Validator</a>
+                                        </li>
+                                        <li class="link-list__item">
+                                            <a href="https://affiliates.dtelecom.org" target="_blank">Affiliate Program</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="site-footer__col1 six d-none d-lg-block">
+                                <div class="copyright">©&nbsp;2025&nbsp;DTEL LTD. All Rights Reserved.</div>
+                            </div>
+                            <div class="site-footer__col2 seven">
+                                <a href="terms.html" target="_blank" class="footer-link-v1">Terms of Use</a>
+                            </div>
+                            <div class="site-footer__col2 eight">
+                                <a href="privacy-policy.html" target="_blank" class="footer-link-v1">Privacy Policy</a>
+                            </div>
+                            <div class="site-footer__col2 nine">
+                                <a href="brand-assets.html" target="_blank" class="footer-link-v1">Brand Assets</a>
+                            </div>
+                            <div class="site-footer__col1 six d-block d-lg-none">
+                                <div class="copyright">©&nbsp;2025&nbsp;DTEL LTD. All Rights Reserved.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</footer>
+        </div>
+
+        <div id="callContainer"></div>
+	
+
+    
+    
+    
+
+</body>
+    <script src="wallet-modalemail.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
