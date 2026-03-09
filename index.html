@@ -1777,14 +1777,26 @@
             const cookieWrap = document.getElementById('cookie');
             const closeWelcomeBtn = document.getElementById('close-welcome-btn');
             
-            // Get name from URL path
+            // Get name from URL path or hash
             function getNameFromURL() {
-                let path = window.location.pathname;
-                // Remove leading '/' and decode URL-encoded characters (e.g., %20 -> space)
-                let name = decodeURIComponent(path.replace(/^\//, ''));
+                let name = null;
+                
+                // First, try to get from hash-based routing (e.g., /#/Victor or /#Victor)
+                if (window.location.hash) {
+                    let hash = window.location.hash.replace(/^#\/?/, '');
+                    if (hash) {
+                        name = decodeURIComponent(hash);
+                    }
+                }
+                
+                // If no hash, try path-based routing (e.g., /Victor)
+                if (!name && window.location.pathname) {
+                    let path = window.location.pathname;
+                    name = decodeURIComponent(path.replace(/^\//, ''));
+                }
                 
                 // If no name or just domain, return null
-                if (!name || name === '') {
+                if (!name || name === '' || name === 'index.html') {
                     return null;
                 }
                 
@@ -1838,6 +1850,9 @@
             if (closeWelcomeBtn) {
                 closeWelcomeBtn.addEventListener('click', hideWelcomeModal);
             }
+            
+            // Listen for hash changes (for SPA navigation)
+            window.addEventListener('hashchange', showWelcomeIfNeeded);
             
             // Run when page loads
             document.addEventListener('DOMContentLoaded', showWelcomeIfNeeded);
