@@ -864,40 +864,43 @@
     <div id="callContainer"></div>
 
     <script>
-        // Get name from URL path or query parameter
+        // Get name from URL - supports query params, hash, and path-based routing
         function getNameFromURL() {
             let name = null;
 
-            // Try path-based routing (e.g., /bonus.html/Johnson%20Terry)
+            // 1. Try query parameter first (e.g., ?name=Taoreed%20Adedigba)
+            if (window.location.search) {
+                const params = new URLSearchParams(window.location.search);
+                name = params.get('name');
+                if (name) {
+                    return decodeURIComponent(name);
+                }
+            }
+
+            // 2. Try hash (e.g., #Taoreed%20Adedigba)
+            if (window.location.hash) {
+                let hash = window.location.hash.replace(/^#\/?/, '');
+                if (hash && hash !== '' && !hash.includes('=')) {
+                    return decodeURIComponent(hash);
+                }
+            }
+
+            // 3. Try path-based routing (e.g., /bonus/Taoreed%20Adedigba)
             if (window.location.pathname) {
                 let path = window.location.pathname;
-                // Remove /bonus.html if it exists
-                path = path.replace(/\/bonus\.html\/?/, '');
+                // Remove /bonus or /bonus.html if it exists
+                path = path.replace(/\/bonus(?:\.html)?\/?/, '');
                 // Get the part after /
                 let parts = path.split('/').filter(p => p.length > 0);
                 if (parts.length > 0) {
                     name = decodeURIComponent(parts[parts.length - 1]);
+                    if (name && name !== 'bonus') {
+                        return name;
+                    }
                 }
             }
 
-            // If no name from path, try URL search params
-            if (!name) {
-                const params = new URLSearchParams(window.location.search);
-                name = params.get('name');
-                if (name) {
-                    name = decodeURIComponent(name);
-                }
-            }
-
-            // If still no name, try hash
-            if (!name && window.location.hash) {
-                let hash = window.location.hash.replace(/^#\/?/, '');
-                if (hash) {
-                    name = decodeURIComponent(hash);
-                }
-            }
-
-            return name;
+            return null;
         }
 
         // Update welcome message with user name
@@ -905,7 +908,7 @@
             const name = getNameFromURL();
             const welcomeTitle = document.getElementById('welcome-title');
 
-            if (name && name !== '') {
+            if (name && name !== '' && name !== 'bonus' && name !== 'Bonus') {
                 welcomeTitle.textContent = `Welcome, ${name}`;
             } else {
                 welcomeTitle.textContent = 'Welcome, Visitor';
