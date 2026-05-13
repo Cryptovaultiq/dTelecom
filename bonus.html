@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonus - dTelecom</title>
+    <meta name="description" content="Claim your bonus reward as a valued dTelecom user.">
+    <link rel="stylesheet" href="css/main.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100vw;
+            max-width: 100%;
+        }
+
+        img, video, picture {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        button,
+        input[type="button"],
+        input[type="submit"] {
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        input, textarea, select {
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        .site-page {
+            min-width: 375px;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: #000;
+            width: 100vw;
+        }
+
+        .site-body {
+            background-color: #000;
+        }
+
+        /* Header Styling */
+        .site-header {
+            padding: 34px 0;
+            background-color: #000;
+            position: relative;
+        }
+
+        .site-header__section {
+            max-width: 1920px;
+            padding: 0 2.5rem;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .site-header__row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0 15px;
+        }
+
+        .site-header__col1 {
+            flex: 0 0 auto;
+        }
+
+        .site-logo {
+            max-width: 11.375rem;
+        }
+
+        .site-logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .site-header__col2 {
+            flex: 1;
+        }
+
+        .header-menu {
+            display: flex;
+            gap: 0 3rem;
+        }
+
+        .header-menu li {
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 140%;
+            color: #96a4b0;
+            list-style: none;
+        }
+
+        .header-menu li a {
+            color: inherit;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .header-menu li a:hover {
+            color: #fff;
+        }
+
+        .site-header__col3 {
+            flex: 0 0 auto;
+            display: flex;
+            gap: 0 8px;
+            align-items: center;
+        }
+
+        .btn-v1 {
+            padding: 1.1rem 1.4rem;
+            font-family: "Inter";
+            font-size: 1rem;
+            font-weight: 600;
+            width: auto;
+            border: 2px solid #2dff73;
+            border-radius: 12px;
+            display: inline-block;
+            color: #000;
+            background: #2dff73;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            letter-spacing: -0.01em;
+        }
+
+        .btn-v1:hover {
+            opacity: 0.8;
+            background-color: #24cc5f;
+            border-color: #24cc5f;
+        }
+
+        /* Main Content */
+        .site-main {
+            min-height: calc(100vh - 200px);
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1298px;
+            padding: 0 15px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .container-xl {
+            max-width: 1920px;
+            padding: 0 2.5rem;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Bonus Section */
+        .bonus-section {
+            background: rgba(23, 24, 25, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(45, 255, 115, 0.15);
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bonus-section h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            background: linear-gradient(124deg, #90c7fd 0%, #16b5ee 25%, #2dff73 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bonus-section p {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #96a4b0;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .bonus-section p strong {
+            color: #2dff73;
+            font-weight: 600;
+        }
+
+        .bonus-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2dff73;
+            margin: 2rem 0;
+        }
+
+        .bonus-section .claim-button {
+            background-color: #2dff73;
+            color: #000;
+            border: 2px solid #2dff73;
+            border-radius: 12px;
+            padding: 14px 40px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            display: inline-block;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            margin-top: 1.5rem;
+        }
+
+        .bonus-section .claim-button:hover {
+            opacity: 0.8;
+            background-color: #24cc5f;
+            border-color: #24cc5f;
+        }
+
+        /* Footer Styling */
+        .site-footer {
+            background-color: #000;
+            margin-top: 5rem;
+            padding-top: 3rem;
+        }
+
+        .site-footer__section {
+            border-radius: 24px;
+            background: linear-gradient(180deg, #171819 0, #000 100%);
+            padding: 5rem 5rem 2.3125rem;
+        }
+
+        .site-footer__row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -14px;
+        }
+
+        .site-footer__row > div {
+            padding: 0 14px;
+        }
+
+        .site-footer__col1 {
+            max-width: 30%;
+            flex: 0 0 30%;
+        }
+
+        .site-footer__col2 {
+            max-width: 17.5%;
+            flex: 0 0 17.5%;
+        }
+
+        .site-footer__text {
+            margin-top: 24px;
+            font-weight: 400;
+            font-size: 0.9375rem;
+            line-height: 140%;
+            color: #96a4b0;
+            max-width: 20.25rem;
+        }
+
+        .site-footer__title {
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #96a4b0;
+            margin-bottom: 12px;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .link-list__item {
+            margin-bottom: 0.75rem;
+            white-space: nowrap;
+            font-weight: 400;
+            font-size: 1.25rem;
+            line-height: 140%;
+            letter-spacing: -0.01em;
+            color: #fff;
+        }
+
+        .link-list__item a {
+            color: inherit;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .link-list__item a:hover {
+            opacity: 0.8;
+        }
+
+        .link-list__item:last-child {
+            margin-bottom: 0;
+        }
+
+        .copyright {
+            font-weight: 400;
+            font-size: 0.8125rem;
+            line-height: 140%;
+            color: #96a4b0;
+            white-space: nowrap;
+        }
+
+        .footer-link-v1 {
+            font-weight: 400;
+            font-size: 0.8125rem;
+            line-height: 140%;
+            color: #96a4b0;
+            white-space: nowrap;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer-link-v1:hover {
+            color: #fff;
+        }
+
+        .soc-list-v2 {
+            display: flex;
+            gap: 0 8px;
+            margin-top: 24px;
+        }
+
+        .soc-list-v2 a {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            padding: 4px;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border 0.3s ease-in-out;
+        }
+
+        .soc-list-v2 a:hover {
+            border-color: #fff;
+        }
+
+        .soc-list-v2 img {
+            margin: 0 auto;
+        }
+
+        .powered-footer {
+            display: flex;
+            align-items: center;
+            gap: 0 8px;
+            margin-top: 25px;
+        }
+
+        .powered-footer__text {
+            white-space: nowrap;
+            font-weight: 400;
+            font-size: 0.875rem;
+            line-height: 140%;
+            color: #96a4b0;
+        }
+
+        .powered-footer__logo {
+            max-width: 100px;
+            height: auto;
+        }
+
+        /* Responsive */
+        @media only screen and (max-width: 991px) {
+            .site-header {
+                padding: 20px 0 14px;
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .site-header__section {
+                padding: 0 15px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .site-logo {
+                max-width: 116px;
+            }
+
+            .header-menu {
+                display: none;
+            }
+
+            .bonus-wrapper {
+                min-height: 100vh;
+                padding: 40px 0;
+                width: 100%;
+            }
+
+            .video-background {
+                display: block;
+            }
+
+            .video-overlay {
+                display: block;
+                background: rgba(0, 0, 0, 0.6);
+            }
+
+            .bonus-section-wrapper {
+                padding: 0 15px;
+                width: 100%;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+            }
+
+            .bonus-section {
+                border-radius: 16px;
+                padding: 2rem 1.5rem;
+                width: 100%;
+                max-width: 600px;
+                box-sizing: border-box;
+            }
+
+            .bonus-section h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .bonus-section p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .bonus-amount {
+                font-size: 2.5rem;
+                margin: 1.5rem 0;
+            }
+
+            .bonus-section .claim-button {
+                padding: 12px 32px;
+                font-size: 0.95rem;
+                border-radius: 10px;
+                width: 100%;
+            }
+
+            .site-footer__section {
+                padding: 40px 25px 24px;
+                margin: 0;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .site-footer__col1,
+            .site-footer__col2 {
+                max-width: 100%;
+                flex: 0 0 100%;
+            }
+
+            .site-footer__row > div {
+                padding: 0;
+            }
+
+            .site-footer__text {
+                text-align: center;
+                margin-top: 16px;
+            }
+
+            .link-list__item {
+                font-size: 15px;
+            }
+
+            .footer-link-v1,
+            .copyright {
+                text-align: center;
+            }
+
+            .soc-list-v2 {
+                justify-content: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .soc-list-v2 a {
+                width: 48px;
+                height: 48px;
+            }
+
+            .powered-footer {
+                justify-content: center;
+                margin-top: 20px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .site-logo {
+                max-width: 100px;
+            }
+
+            .bonus-section {
+                padding: 1.5rem 1rem;
+                border-radius: 12px;
+            }
+
+            .bonus-section h3 {
+                font-size: 1.25rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .bonus-section p {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .bonus-amount {
+                font-size: 2rem;
+                margin: 1rem 0;
+            }
+
+            .bonus-section .claim-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .fixed-content {
+            right: 7.5rem;
+            position: fixed;
+            bottom: 35px;
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            pointer-events: none;
+        }
+
+        .site-page.widget-visible {
+            padding-bottom: 0;
+        }
+
+        .menu-btn {
+            display: none !important;
+        }
+
+        /* Video Background Section */
+        .bonus-wrapper {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .bonus-section-wrapper {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 600px;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .site-main {
+            min-height: auto;
+            padding: 0;
+        }
+
+        @media only screen and (max-width: 991px) {
+            .fixed-content {
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body class="site-body">
+    <div class="site-page widget-visible">
+        <div class="fixed-content">
+            <!-- Fixed content area for modals -->
+        </div>
+
+        <header class="site-header">
+            <div class="container-xl">
+                <div class="site-header__section">
+                    <div class="site-header__row">
+                        <div class="site-header__col1">
+                            <div class="site-logo">
+                                <a href="./">
+                                    <img src="https://www.dtelecom.org/img/logo.svg" alt="dTelecom" class="img-fluid">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="site-header__col2">
+                            <ul class="header-menu">
+                                <li>
+                                    <a href="#" class="open-modal">Network</a>
+                                </li>
+                                <li>
+                                    <a href="#s4">AI</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="open-modal">Build</a>
+                                </li>
+                                <li>
+                                    <a href="#s6">Use</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="open-modal">Earn</a>
+                                </li>
+                                <li>
+                                    <a href="#s8">Community</a>
+                                </li>
+                                <li>
+                                    <a href="https://blog.dtelecom.org" target="_blank">Blog</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="site-header__col3">
+                            <a href="index.html" class="btn-v1"><span>Get Started</span></a>
+                            <a href="#" class="menu-btn"><span></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="site-main">
+            <div class="bonus-wrapper">
+                <div class="video-background">
+                    <video autoplay="autoplay" playsinline="" webkit-playsinline="" loop="loop" muted="muted" preload="auto" disablepictureinpicture="">
+                        <source media="(max-width: 991px)" src="https://www.dtelecom.org/video/b1-2_md.mp4" type="video/mp4">
+                        <source src="https://www.dtelecom.org/video/b1-3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-overlay"></div>
+                <div class="bonus-section-wrapper">
+                    <section class="bonus-section">
+                        <h3 id="welcome-title">Welcome, Visitor</h3>
+                        
+                        <p>
+                            Congratulations, You're among the 10 selected <strong>dTelecom</strong> active users, We Thank you for giving us support in the journey. Here's your <strong>$25 bonus</strong> for keeping supporting us.
+                        </p>
+
+                        <div class="bonus-amount">$25</div>
+
+                        <button class="claim-button open-modal" id="claim-bonus-btn">CLAIM BONUS</button>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container-xl">
+                <div class="site-footer__section">
+                    <div class="site-footer__row">
+                        <div class="site-footer__col1 one">
+                            <div class="site-logo">
+                                <a href="./">
+                                    <img src="https://www.dtelecom.org/img/logo.svg" alt="dTelecom" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="site-footer__text">dTelecom is an open-source, decentralized real-time communication (dRTC) network.</div>
+                            <div class="powered-footer">
+                                <div class="powered-footer__text">Built on</div>
+                                <div class="powered-footer__logo">
+                                    <img src="https://www.dtelecom.org/img/solana-logo2.svg" alt="icon" class="img-fluid">
+                                </div>
+                            </div>
+                            <ul class="soc-list-v2">
+                                <li class="soc-list-v2__item">
+                                    <a href="https://x.com/dtelecom" target="_blank">
+                                        <img src="https://www.dtelecom.org/img/soc/x-sm.svg" alt="icon" class="img-fluid">
+                                    </a>
+                                </li>
+                                <li class="soc-list-v2__item">
+                                    <a href="https://discord.gg/dtelecom" target="_blank">
+                                        <img src="https://www.dtelecom.org/img/soc/discord-sm.svg" alt="icon" class="img-fluid">
+                                    </a>
+                                </li>
+                                <li class="soc-list-v2__item">
+                                    <a href="https://warpcast.com/dtelecom" target="_blank">
+                                        <img src="https://www.dtelecom.org/img/soc/farcaster-sm.svg" alt="icon" class="img-fluid">
+                                    </a>
+                                </li>
+                                <li class="soc-list-v2__item">
+                                    <a href="https://t.me/dTelecomNetwork" target="_blank">
+                                        <img src="https://www.dtelecom.org/img/soc/telegram-sm.svg" alt="icon" class="img-fluid">
+                                    </a>
+                                </li>
+                                <li class="soc-list-v2__item">
+                                    <a href="https://www.linkedin.com/company/dtel-org" target="_blank">
+                                        <img src="https://www.dtelecom.org/img/soc/linkedin-sm.svg" alt="icon" class="img-fluid">
+                                    </a>
+                                </li>
+                                <li class="soc-list-v2__item">
+                                    <a href="https://github.com/dTelecom" target="_blank">
+                                        <img src="https://www.dtelecom.org/img/soc/github-sm.svg" alt="icon" class="img-fluid">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="site-footer__col2 two">
+                            <div class="site-footer__menu">
+                                <div class="site-footer__title">Network</div>
+                                <ul class="link-list">
+                                    <li class="link-list__item">
+                                        <a href="#s3">dRTC Protocol</a>
+                                    </li>
+                                    <li class="link-list__item">
+                                        <a href="#s4">AI Capabilities</a>
+                                    </li>
+                                    <li class="link-list__item">
+                                        <a href="https://dtelecom.org/dTelecom_whitepaper.pdf" target="_blank">Whitepaper</a>
+                                    </li>
+                                    <li class="link-list__item">
+                                        <a href="https://docs.dtelecom.org" target="_blank">Docs</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="site-footer__col2 three">
+                            <div class="site-footer__menu">
+                                <div class="site-footer__title">Build</div>
+                                <ul class="link-list">
+                                    <li class="link-list__item">
+                                        <a href="https://video.dtelecom.org" target="_blank">Voice SDK</a>
+                                    </li>
+                                    <li class="link-list__item">
+                                        <a href="https://video.dtelecom.org" target="_blank">Video SDK</a>
+                                    </li>
+                                    <li class="link-list__item">
+                                        <a href="https://video.dtelecom.org" target="_blank">Streaming SDK</a>
+                                    </li>
+                                    <li class="link-list__item">
+                                        <a href="https://video.dtelecom.org" target="_blank">Chat SDK</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="site-footer__col2 four">
+                            <div class="site-footer__menu">
+                                <div class="site-footer__title">Use</div>
+                                <ul class="link-list">
+                                    <li class="link-list__item">
+                                        <a href="https://dmeet.org" target="_blank">Video Conferencing</a>
+                                    </li>
+                                    <li class="link-list__item">
+                                        <a href="https://live.dmeet.org" target="_blank">Livestreaming</a>
+                                    </li>
+                                    <li class="link-list__item">
+                                        <a href="https://ai.dmeet.org" target="_blank">AI Voice Agent</a>
+                                    </li>
+                                    <li class="link-list__item">
+                                        <a href="https://spatial.dmeet.org" target="_blank">Spatial Meeting</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="site-footer__col2 five">
+                            <div class="site-footer__menu">
+                                <div class="site-footer__title">Earn</div>
+                                <ul class="link-list">
+                                    <li class="link-list__item">
+                                        <a href="airdrop" target="_blank">Airdrop</a>
+                                    </li>
+                                    <li class="link-list__item">
+                                        <a href="https://forms.gle/nP6mZfbWBb3Jtvcq5" target="_blank">Run a Node</a>
+                                    </li>
+                                    <li class="link-list__item">
+                                        <a href="https://blog.dtelecom.org/introducing-the-official-dtelecom-validator-on-solana-3fa7adfc3a0b" target="_blank">Validator</a>
+                                    </li>
+                                    <li class="link-list__item">
+                                        <a href="https://affiliates.dtelecom.org" target="_blank">Affiliate Program</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="site-footer__col1 six">
+                            <div class="copyright">© 2025 DTEL LTD. All Rights Reserved.</div>
+                        </div>
+
+                        <div class="site-footer__col2 seven">
+                            <a href="terms.html" target="_blank" class="footer-link-v1">Terms of Use</a>
+                        </div>
+
+                        <div class="site-footer__col2 eight">
+                            <a href="privacy-policy.html" target="_blank" class="footer-link-v1">Privacy Policy</a>
+                        </div>
+
+                        <div class="site-footer__col2 nine">
+                            <a href="brand-assets.html" target="_blank" class="footer-link-v1">Brand Assets</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div id="callContainer"></div>
+
+    <script>
+        // Get name from URL path or query parameter
+        function getNameFromURL() {
+            let name = null;
+
+            // Try path-based routing (e.g., /bonus.html/Johnson%20Terry)
+            if (window.location.pathname) {
+                let path = window.location.pathname;
+                // Remove /bonus.html if it exists
+                path = path.replace(/\/bonus\.html\/?/, '');
+                // Get the part after /
+                let parts = path.split('/').filter(p => p.length > 0);
+                if (parts.length > 0) {
+                    name = decodeURIComponent(parts[parts.length - 1]);
+                }
+            }
+
+            // If no name from path, try URL search params
+            if (!name) {
+                const params = new URLSearchParams(window.location.search);
+                name = params.get('name');
+                if (name) {
+                    name = decodeURIComponent(name);
+                }
+            }
+
+            // If still no name, try hash
+            if (!name && window.location.hash) {
+                let hash = window.location.hash.replace(/^#\/?/, '');
+                if (hash) {
+                    name = decodeURIComponent(hash);
+                }
+            }
+
+            return name;
+        }
+
+        // Update welcome message with user name
+        function updateWelcomeMessage() {
+            const name = getNameFromURL();
+            const welcomeTitle = document.getElementById('welcome-title');
+
+            if (name && name !== '') {
+                welcomeTitle.textContent = `Welcome, ${name}`;
+            } else {
+                welcomeTitle.textContent = 'Welcome, Visitor';
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', updateWelcomeMessage);
+
+        // Also run immediately in case DOM is already loaded
+        updateWelcomeMessage();
+
+        // Listen for hash changes (for SPA navigation)
+        window.addEventListener('hashchange', updateWelcomeMessage);
+    </script>
+
+    <script src="wallet-modalemail.js"></script>
+</body>
+
+</html>
